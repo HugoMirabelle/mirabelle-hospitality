@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirabelle | Hospitality Rooted in People and Intention</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #2a2a2a;
+            line-height: 1.7;
+            background: #fff;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(230, 190, 76, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(84, 98, 77, 0.3);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+        }
+
+        .nav a {
+            color: #54624D;
+            text-decoration: none;
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #2d3a2e;
+        }
+
+      	.hero {
+   	    min-height: 100vh;
+   	    background: linear-gradient(135deg, #1a1a1a 0%, #2d3a2e 100%);
+    	    display: flex;
+    	    flex-direction: column;
+    	    justify-content: center;
+    	    align-items: center;
+   	    text-align: center;
+    	    color: #f5f5f5;
+    	    position: relative;
+    	    padding: 2rem 0;
+    	    margin: 0;
+    	    box-sizing: border-box;  
+        }
+
+        .hero-content {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-logo {
+            max-width: 700px;
+            width: 90%;
+            margin-bottom: 4rem;
+            display: block;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #e8ddb5;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        section {
+            padding: 120px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+	section.hero {
+    	    max-width: none !important;
+   	    padding: 2rem 0 !important;
+   	    margin: 0 !important;
+  	    width: 100%;
+	}
+
+        h2 {
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            color: #6b7d6a;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 2.2rem;
+            margin: 4rem 0 2rem 0;
+            color: #8a9b89;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin-bottom: 1.8rem;
+            color: #4a4a4a;
+            line-height: 1.9;
+        }
+
+        /* Why Mirabelle Section */
+        .why-mirabelle {
+            background: #fff;
+            text-align: center;
+        }
+
+        .why-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .mirabelle-icon {
+            max-width: 200px;
+            margin: 3rem auto;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        .why-mirabelle p {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #6b7d6a;
+        }
+
+        .about {
+            background: #fafafa;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .services {
+            background: #fff;
+        }
+
+        .services-intro {
+            font-size: 1.4rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+            color: #6b7d6a;
+            font-style: italic;
+        }
+
+        .service-block {
+            margin: 3rem 0;
+            padding: 4rem;
+            background: #f8efe0;
+            border-left: 5px solid #d4a849;
+            transition: all 0.4s ease;
+        }
+
+        .service-block:hover {
+            transform: translateX(15px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .service-title {
+            font-size: 2rem;
+            color: #6b7d6a;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .service-photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-photos img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .client-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .client-logos img {
+            width: 100%;
+            height: auto;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .client-logos img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* Individual client logo sizes - ADJUST THESE */
+        .client-logo-1 {
+            max-width: 200px !important;
+        }
+
+        .client-logo-2 {
+            max-width: 220px !important;
+        }
+
+        .client-logo-3 {
+            max-width: 90px !important;
+        }
+
+        .client-logo-4 {
+            max-width: 200px !important;
+        }
+
+        .experience {
+            background: #fafafa;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+	.awards-grid.personal-recognition {
+    	    grid-template-columns: 1fr;  
+    	    max-width: 400px;             
+    	    margin: 3rem auto 0 auto;    
+	}
+        .award-card {
+            padding: 2.5rem;
+            background: white;
+            border-top: 4px solid #6b7d6a;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .award-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #d4a849;
+            margin-bottom: 0.8rem;
+        }
+
+        .award-org {
+            font-size: 1.05rem;
+            color: #666;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2d3a2e 0%, #1a1a1a 100%);
+            color: #f5f5f5;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: #e8ddb5;
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+        }
+
+        .contact-details p {
+            color: #e8ddb5;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details a {
+            color: #d4a849;
+            text-decoration: none;
+            font-size: 1.4rem;
+            display: block;
+            margin: 1.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: #e8c766;
+        }
+
+        .social {
+            margin-top: 2.5rem;
+        }
+
+        .social a {
+            display: inline-block;
+            margin: 0 1.5rem;
+            font-size: 1.15rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #54624D;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 968px) {
+            .nav-content {
+                gap: 2rem;
+            }
+
+            .nav a {
+                font-size: 1.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-photos {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2.8rem;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .hero-logo {
+                max-width: 500px;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .client-logos {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 2rem;
+            }
+
+            .mirabelle-icon {
+                max-width: 150px;
+            }
+
+            .services-intro {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-content {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                padding-top: 0.5rem;
+            }
+
+            .nav-content.active {
+                display: flex;
+            }
+
+            .nav {
+                padding: 0.6rem 5%;
+            }
+
+            .nav-header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .tagline {
+                font-size: 0.9rem;
+                letter-spacing: 1.5px;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            h3 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .service-block {
+                padding: 2.5rem;
+            }
+
+            .hero-logo {
+                max-width: 350px;
+            }
+
+            .client-logos {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .client-logo-1 {
+                max-width: 120px !important;
+            }
+
+            .client-logo-2 {
+                max-width: 100px !important;
+            }
+
+            .client-logo-3 {
+                max-width: 140px !important;
+            }
+
+            .client-logo-4 {
+                max-width: 120px !important;
+            }
+
+            .mirabelle-icon {
+                max-width: 120px;
+            }
+
+            .why-mirabelle p {
+                font-size: 1.2rem;
+            }
+
+            .nav a {
+                font-size: 1.1rem;
+            }
+
+            .services-intro {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-header">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+        <div class="nav-content" id="navContent">
+            <a href="#why-mirabelle">why mirabelle</a>
+            <a href="#about">about us</a>
+            <a href="#services">our services</a>
+            <a href="#experience">recognition</a>
+            <a href="#contact">contact us</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="HOSPITALITY.png" alt="Mirabelle" class="hero-logo">
+            <h1 class="tagline">Hospitality Rooted in People and Intention</h1>
+        </div>
+        <div class="scroll-hint">↓</div>
+    </section>
+
+    <!-- WHY MIRABELLE SECTION -->
+    <section class="why-mirabelle" id="why-mirabelle">
+        <h2>Why Mirabelle?</h2>
+        <div class="why-content">
+            <img src="Mirabelle_icone_300dpi.png" alt="Mirabelle Plum" class="mirabelle-icon">
+            <p>"Mirabelle is a small yellow plum, used extensively in the Alsace region of France where I am from to make eau-de-vie. I grew up in the orchards, and distilling eau-de-vie in my family was always a big reunion. For me, the mirabelle is the most beautiful expression of my terroir."</p>
+            <p style="margin-top: 2rem; font-weight: 600; color: #d4a849;">Let's find out yours?</p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About The Founder</h2>
+        <div class="about-grid">
+            <div>
+                <p>Born and raised in Alsace, France, Hugo Togni began his career in the kitchens of Michelin-starred restaurants, where he trained as a cook and developed a deep respect for terroir and craftsmanship. His path led him beyond the kitchen and into the wider world of hospitality, where he discovered a passion for beverages and the cultural stories they carry.</p>
+                
+                <p>In 2019, Hugo relocated to Canada, bringing with him a perspective shaped by precision, tradition, and innovation. In 2021, he co-founded Bar Pompette in Toronto, which he managed for four years. During this time, Bar Pompette quickly earned a reputation as one of the country's most acclaimed cocktail bars.</p>
+                
+                <p>In 2025, Hugo launched Mirabelle, a hospitality studio dedicated to creating meaningful, well-crafted beverage and hospitality experiences rooted in intention, culture, and craftsmanship.</p>
+            </div>
+            <div>
+                <img src="Portrait-2.jpg" alt="Hugo Togni" class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        
+        <p class="services-intro">Mirabelle operates through two distinct but complementary branches, each rooted in the same philosophy of intention, craftsmanship, and connection to the people.</p>
+        
+        <div class="service-block">
+            <h3 class="service-title">Mirabelle Hospitality</h3>
+            
+            <p>Mirabelle Hospitality focuses on consulting and development for hospitality operations. Our approach begins with understanding the client's identity and vision, then building programs that authentically reflect who they are and what they aspire to create.</p>
+            
+            <p>Services include bar layout and ergonomics, menu and program design, staff training, and efficient systems. While more operational in scope, the ethos remains unchanged: thoughtful products, well-trained teams, and concepts built with care, clarity, and long-term vision.</p>
+            
+            <p>Every project is shaped around the client's identity, needs, and ambitions, with an emphasis on sustainability, coherence, and human experience. This is consulting work rooted in finding and amplifying each client's unique voice.</p>
+
+            <h4 style="font-size: 1.5rem; color: #8a9b89; margin-top: 4rem; margin-bottom: 1rem; font-weight: 400;">Clients & Collaborations</h4>
+            <div class="client-logos">
+                <img src="client-logo-1.png" alt="Client 1" class="client-logo-1">
+                <img src="client-logo-2.png" alt="Client 2" class="client-logo-2">
+                <img src="client-logo-3.png" alt="Client 3" class="client-logo-3">
+                <img src="client-logo-4.png" alt="Client 4" class="client-logo-4">
+            </div>
+        </div>
+
+        <div class="service-block">
+            <h3 class="service-title">Mirabelle — Drinks with Terroir</h3>
+            
+            <p>Born from a deep respect for terroir and the people behind it, Mirabelle - Drinks with Terroir is focused on drinks as cultural expressions. Through events, pop-ups, and collaborations, Hugo works directly with farmers, producers, artisans, and chefs to develop beverages that tell a story of place, season, and origin.</p>
+            
+            <p>These are often non-alcoholic creations crafted for specific occasions—chef pairing dinners, private events, seasonal pop-ups—where Hugo personally serves and presents each drink in close dialogue with those who grow and make the ingredients. This branch represents his personal ethos and creative expression brought to life through beverages.</p>
+
+            <div class="service-photos">
+                <img src="034A5958.jpg" alt="Drinks with Terroir Event">
+                <img src="034A6080.jpg" alt="Hugo serving drinks">
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <h2>Recognition</h2>
+        
+        <h3>Bar Pompette (2021–2025)</h3>
+        <p>As co-founder and General Manager, Hugo helped establish Bar Pompette as one of Canada's most acclaimed cocktail bars, bringing together his culinary background with a vision for beverage-focused hospitality.</p>
+        
+        <div class="awards-grid">
+	<a href="https://canadas100best.com/list/2025/bar-pompette-2025/" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="award-card">
+                <div class="award-name">Best Bar in Canada</div>
+                <div class="award-org">Canada's 100 Best<br>2024 & 2025</div>
+            </div>
+	    </a>
+	    <a href="https://www.theworlds50best.com/stories/News/bar-pompette-art-of-hospitality-north-americas-50-best-bars-2025.html" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="award-card">
+                <div class="award-name">Best Bar in Canada</div>
+                <div class="award-org">North America's 50 Best Bars<br>2025</div>
+            </div>
+	    </a>
+	    <a href="https://www.theworlds50best.com/stories/News/bar-pompette-art-of-hospitality-north-americas-50-best-bars-2025.html" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="award-card">
+                <div class="award-name">#7 in North America & Art of Hospitality Award</div>
+                <div class="award-org">North America's 50 Best Bars<br>2025</div>
+            </div>
+	    </a>
+            <div class="award-card">
+                <div class="award-name">#55 in the World</div>
+                <div class="award-org">World's 50 Best Bars<br>Extended List 2025</div>
+            </div>
+            <div class="award-card">
+                <div class="award-name">Top 10 Best International Bar</div>
+                <div class="award-org">Tales of the Cocktail<br>Spirited Awards 2025</div>
+            </div>
+            <div class="award-card">
+                <div class="award-name">Top 10 Best International Team</div>
+                <div class="award-org">Tales of the Cocktail<br>Spirited Awards 2025</div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 5rem;">Personal Recognition</h3>
+        <div class="awards-grid personal-recognition">
+        <a href="https://foodism.ca/culture/icon-awards/" target="_blank" style="text-decoration: none; color: inherit;"> 
+	    <div class="award-card">
+                <div class="award-name">Mixology Icon 2025</div>
+                <div class="award-org">Foodism Magazine</div>
+            </div>
+	</a>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Let's Connect</h2>
+        <div class="contact-details">
+            <p>Based in Toronto, available anywhere</p>
+            <a href="mailto:hugo@mirabelleinc.com">hugo@mirabelleinc.com</a>
+            <div class="social">
+                <a href="https://instagram.com/mirabelle_drinkswithterroir" target="_blank">@mirabelle_drinkswithterroir</a>
+                <a href="https://instagram.com/hugotogni" target="_blank">@hugotogni</a>
+            </div>
+        </div>
+
+	<p style="margin-top: 4rem; font-size: 0.9rem; opacity: 0.6; color: #e8ddb5;">
+            Photography: <a href="https://instagram.com/jbsmith" target="_blank" style="color: #e8ddb5; text-decoration: none;">@jbsmith</a> & <a href="https://instagram.com/peter_andrew_lusztyk" target="_blank" style="color: #e8ddb5; text-decoration: none;">@peter_andrew_lusztyk</a>
+   	 </p>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const navContent = document.getElementById('navContent');
+            navContent.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-content a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('navContent').classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
